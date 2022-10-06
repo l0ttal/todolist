@@ -41,6 +41,7 @@ function Todolist() {
 	}
 
 	function deleteTodo() {
+		if (gridRef.current.getSelectedNodes().length === 0) return alert('Select row first');
 		setTodos(todos.filter((todo, index) =>
 			index !== gridRef.current.getSelectedNodes()[0].childIndex));
 	}
