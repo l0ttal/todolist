@@ -1,5 +1,7 @@
 import React, { useState, useRef } from 'react';
 
+import TabApp from './TabApp';
+
 function Home() {
 	return (
 		<div>
