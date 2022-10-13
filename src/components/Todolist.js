@@ -11,6 +11,8 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import AddIcon from '@mui/icons-material/Add';
 import Snackbar from '@mui/material/Snackbar';
 
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+
 function Todolist() {
 	const [input, setInput] = useState({
 		description: '',
@@ -61,8 +63,20 @@ function Todolist() {
 				<Stack direction="row" justifyContent="center" alignItems="center" spacing={2}>
 					<TextField variant="standard" name="description" label="Something to do" value={input.description} onChange={event =>
 						setInput({ ...input, [event.target.name]: event.target.value })} />
-					<TextField variant="standard" name="date" label="date" value={input.date} onChange={event =>
-						setInput({ ...input, [event.target.name]: event.target.value })} />
+					<TextField
+						variant="standard"
+						name="date"
+						value={input.date}
+						id="datetime-local"
+						label="Next appointment"
+						type="datetime-local"
+						sx={{ width: 250 }}
+						InputLabelProps={{
+							shrink: true,
+						}}
+						onChange={event =>
+							setInput({ ...input, [event.target.name]: event.target.value })}
+					/>
 					<TextField variant="standard" name="priority" label="Priority" value={input.priority} onChange={event =>
 						setInput({ ...input, [event.target.name]: event.target.value })} />
 					<Button variant="contained" startIcon={<AddIcon />} onClick={addTodo}>Add</Button>
